@@ -1,0 +1,15 @@
+################################################################################
+### cloud ######################################################################
+################################################################################
+cask 'box-sync'
+cask 'dropbox'
+cask 'google-drive'
+mas  'OneDrive', id: 823766827
+
+brew 'awscli'
+brew 'azure-cli'
+brew 'kubernetes-cli'
+brew 'cf-cli'
+brew 'heroku-toolbelt'
+
+brew 'consul'

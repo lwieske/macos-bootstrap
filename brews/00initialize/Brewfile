@@ -1,0 +1,29 @@
+################################################################################
+### initialize #################################################################
+################################################################################
+
+tap 'caskroom/cask'
+tap 'caskroom/fonts'
+tap 'cloudfoundry/tap'
+tap 'getantibody/homebrew-antibody'
+tap 'homebrew/science'
+tap 'pivotal/tap'
+
+brew 'mas'
+
+# sonicpi
+
+# consul
+# consul-cli
+# consul-template
+# consul-web-ui
+#
+# notebook
+#
+# openscad
+#
+# otto
+#
+# rust
+#
+# terraform

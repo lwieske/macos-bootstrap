@@ -1,0 +1,21 @@
+################################################################################
+### lang #######################################################################
+################################################################################
+brew 'go'                           # go
+cask 'java'                         # java
+brew 'ant'
+brew 'gradle'
+brew 'maven'
+brew 'node'                         # javascript
+brew 'python'                       # python
+brew 'python3'
+brew 'R'                            # R
+brew 'scala'                        # scala
+brew 'sbt'
+# cask 'rust'
+# nvm
+# curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
+# pyenv
+# brew pyenv
+# rvm
+#

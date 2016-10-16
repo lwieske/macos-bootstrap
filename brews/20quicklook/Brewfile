@@ -1,0 +1,11 @@
+################################################################################
+### quicklook ##################################################################
+################################################################################
+cask 'betterzipql'
+cask 'qlimagesize'
+cask 'qlmarkdown'
+cask 'qlprettypatch'
+cask 'qlstephen'
+cask 'quicklook-csv'
+cask 'quicklook-json'
+cask 'webpquicklook'

@@ -1,0 +1,19 @@
+################################################################################
+### utilities ##################################################################
+################################################################################
+cask 'avira-antivirus'
+cask 'cleanmymac'
+mas  'CleanMyDrive 2', id: 523620159
+brew 'dnsmasq'
+brew 'etcd'
+brew 'fleetctl'
+brew 'imagemagick'
+brew 'jq'
+cask 'keybase'
+brew 'openssl'
+brew 'platformio'
+brew 'ttyrec'
+brew 'unrar'
+brew 'wget'
+cask 'wireshark'
+brew 'xz'
