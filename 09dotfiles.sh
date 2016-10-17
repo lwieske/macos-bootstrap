@@ -10,7 +10,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
 
-git clone https://github.com/lwieske/dotfiles ~/.dotfiles
+git clone https://github.com/lwieske/.dotfiles
 
 [ ! -a ~/.atom ] && ln -s ~/.dotfiles/atom.symlink ~/.atom
 [ ! -a ~/.powerlevel9k ] && ln -s ~/.dotfiles/powerlevel9k.symlink ~/.powerlevel9k
