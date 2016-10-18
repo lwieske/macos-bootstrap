@@ -52,7 +52,7 @@ if `plistbuddy 'Print "New Bookmarks":0:"Command"' >/dev/null 2>&1`; then
   plistbuddy "Set \"New Bookmarks\":0:\"Command\" \"${COMMAND}\""
 fi
 if `plistbuddy 'Print "New Bookmarks":0:"Normal Font"' >/dev/null 2>&1`; then
-  plistbuddy "Set \"New Bookmarks\":0:\"Normal Font\" \""${FONT}"\""
+  plistbuddy "Set \"New Bookmarks\":0:\"Normal Font\" \"${FONT}\""
 fi
 if `plistbuddy 'Print "New Bookmarks":0:"Non Ascii Font"' >/dev/null 2>&1`; then
   plistbuddy "Set \"New Bookmarks\":0:\"Non Ascii Font\" \"${FONT}\""

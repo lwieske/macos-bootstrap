@@ -28,6 +28,9 @@ done
 echo "### brew cleanup"
 brew cleanup
 
+echo "### patch Source Code Pro (powerline)"
+./08powerlinefont.sh
+
 echo "### symlinking dotfiles"
 ./09dotfiles.sh
 

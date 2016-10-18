@@ -3,11 +3,8 @@
 ################################################################################
 brew 'android-sdk'
 cask 'android-studio'
-
-cask 'livereload'
-
-cask 'rstudio'
-
-cask 'unity'
-
 cask 'dash'
+cask 'livereload'
+cask 'rstudio'
+cask 'unity'
+mas 'Xcode', id: 497799835

@@ -10,6 +10,7 @@ brew 'fleetctl'
 brew 'imagemagick'
 brew 'jq'
 cask 'keybase'
+mas 'Monosnap', id: 540348655
 brew 'openssl'
 brew 'platformio'
 brew 'ttyrec'
