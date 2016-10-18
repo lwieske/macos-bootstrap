@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 COMMAND="/bin/zsh --login"
-FONT="SourceCodePro+Powerline+AwesomeRegular 14"
+FONT="SourceCodePro+Powerline+Awesome+Regular 14"
 COLOR="Brogrammer"
 
 ################################################################################

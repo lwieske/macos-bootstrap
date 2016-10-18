@@ -1,5 +1,19 @@
 # macos-bootstrap
 
+## Testing and Validatin with Packer/Vagrant
+
+```
+vagrant destroy --force
+vagrant up --provider virtualbox
+vagrant ssh -c "git clone https://github.com/lwieske/macos-bootstrap"
+vagrant ssh -c "cd macos-bootstrap ; ./bootstrap.sh macos"
+vagrant halt
+vagrant up --provider virtualbox
+vagrant ssh -c "cd macos-bootstrap ; ./bootstrap.sh basics"
+vagrant halt
+vagrant up --provider virtualbox
+```
+
 ## ./bootstrap.sh macos
 
 ## ./bootstrap.sh basics
