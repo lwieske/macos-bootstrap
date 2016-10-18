@@ -9,6 +9,6 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
-
-curl -O https://github.com/Lokaltog/powerline-fonts/raw/master/SourceCodePro/Source%20Code%20Pro%20for%20Powerline.otf
-fontforge -script Source+Code+Pro+for+Powerline.otf /Library/Fonts/SourceCodePro-Regular.ttf
+pushd /Library/Fonts
+curl -O https://github.com/stefano-meschiari/dotemacs/raw/master/SourceCodePro%2BPowerline%2BAwesome%2BRegular.ttf
+popd
