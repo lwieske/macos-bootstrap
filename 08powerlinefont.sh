@@ -9,8 +9,9 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
-
+mkmdir -p ~/Library/Fonts
 pushd ~/Library/Fonts
-curl -O https://github.com/stefano-meschiari/dotemacs/raw/master/SourceCodePro%2BPowerline%2BAwesome%2BRegular.ttf
-mv SourceCodePro%2BPowerline%2BAwesome%2BRegular.ttf SourceCodePro+Powerline+Awesome+Regular.ttf
+curl                                                                           \
+      -o SourceCodePro+Powerline+Awesome+Regular.ttf                           \
+      https://github.com/stefano-meschiari/dotemacs/raw/master/SourceCodePro%2BPowerline%2BAwesome%2BRegular.ttf
 popd
