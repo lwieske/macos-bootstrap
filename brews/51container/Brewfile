@@ -4,3 +4,6 @@
 brew 'docker'
 brew 'docker-machine'
 brew 'docker-swarm'
+
+brew 'etcdctl'
+brew 'fleetctl'

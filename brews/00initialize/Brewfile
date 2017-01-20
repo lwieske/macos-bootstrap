@@ -7,7 +7,6 @@ tap 'caskroom/fonts'
 tap 'cloudfoundry/tap'
 tap 'getantibody/homebrew-antibody'
 tap 'homebrew/science'
-tap 'pivotal/tap'
 
 brew 'mas'
 
