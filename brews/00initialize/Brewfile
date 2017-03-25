@@ -9,20 +9,3 @@ tap 'getantibody/homebrew-antibody'
 tap 'homebrew/science'
 
 brew 'mas'
-
-# sonicpi
-
-# consul
-# consul-cli
-# consul-template
-# consul-web-ui
-#
-# notebook
-#
-# openscad
-#
-# otto
-#
-# rust
-#
-# terraform

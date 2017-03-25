@@ -8,8 +8,9 @@ mas  'OneDrive', id: 823766827
 
 brew 'awscli'
 brew 'azure-cli'
-brew 'kubernetes-cli'
+cask 'bluemix-cli'
 brew 'cf-cli'
 brew 'heroku-toolbelt'
+brew 'kubernetes-cli'
 
 brew 'consul'

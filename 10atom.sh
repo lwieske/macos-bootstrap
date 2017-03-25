@@ -16,6 +16,7 @@ apm install auto-detect-indentation
 apm install file-icons
 apm install fonts
 apm install git-time-machine
+apm install jupyter-notebook
 apm install linter
 apm install linter-golinter
 apm install linter-jshint

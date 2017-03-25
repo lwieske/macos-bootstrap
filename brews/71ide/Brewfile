@@ -5,6 +5,5 @@ brew 'android-sdk'
 cask 'android-studio'
 cask 'dash'
 cask 'livereload'
-cask 'rstudio'
 cask 'unity'
 mas 'Xcode', id: 497799835
