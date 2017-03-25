@@ -24,19 +24,10 @@ sudo scutil --set HostName      ${HOSTNAME}
 sudo scutil --set LocalHostName ${HOSTNAME}
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string ${HOSTNAME}
 
-# set locale
-defaults write NSGlobalDomain AppleLanguages        -array "de"
-defaults write NSGlobalDomain AppleLocale           -string "de_DE@currency=EUR"
-defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
-defaults write NSGlobalDomain AppleMetricUnits      -bool true
-
-# Set timezone
-sudo systemsetup -settimezone "Europe/Berlin" > /dev/null
-
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
-# Disable transparency in the menu bar and elsewhere on Yosemite
+# Disable transparency in the menu bar and elsewhere on Sierra
 defaults write com.apple.universalaccess reduceTransparency -bool true
 
 # Save to disk (not to iCloud) by default
@@ -71,22 +62,6 @@ sudo tmutil disablelocal
 
 echo "### trackpad"
 
-# enable tap to click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad              \
-    Clicking -bool true
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-
-# map bottom right corner to right click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad              \
-    TrackpadCornerSecondaryClick -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad              \
-    TrackpadRightClick -bool true
-defaults -currentHost write NSGlobalDomain                                     \
-    com.apple.trackpad.trackpadCornerClickBehavior -int 1
-defaults -currentHost write NSGlobalDomain                                     \
-    com.apple.trackpad.enableSecondaryClick -bool true
-
 ###############################################################################
 # Mouse                                                                       #
 ###############################################################################
@@ -99,54 +74,17 @@ echo "### mouse"
 
 echo "### keyboard"
 
-defaults write com.apple.HIToolbox AppleCurrentKeyboardLayoutInputSourceID     \
-    "com.apple.keylayout.German"
-defaults write com.apple.HIToolbox AppleDefaultAsciiInputSource                \
-    -dict InputSourceKind "Keyboard Layout" "KeyboardLayout ID"                \
-    -int 3 "KeyboardLayout Name" German
-
-# delete default layout (US)
-# defaults delete com.apple.HIToolbox AppleEnabledInputSources
-
-# enable German layout
-#'{ InputSourceKind = "Keyboard Layout"; "KeyboardLayout ID" = 3; "KeyboardLayout Name" = German; }'
-defaults write com.apple.HIToolbox AppleEnabledInputSources  -array '<dict><key>InputSourceKind</key><string>Keyboard Layout</string><key>KeyboardLayout ID</key><integer>3</integer><key>KeyboardLayout Name</key><string>German</string></dict>'
-defaults write com.apple.HIToolbox AppleInputSourceHistory   -array '<dict><key>InputSourceKind</key><string>Keyboard Layout</string><key>KeyboardLayout ID</key><integer>3</integer><key>KeyboardLayout Name</key><string>German</string></dict>'
-defaults write com.apple.HIToolbox AppleSelectedInputSources -array '<dict><key>InputSourceKind</key><string>Keyboard Layout</string><key>KeyboardLayout ID</key><integer>3</integer><key>KeyboardLayout Name</key><string>German</string></dict>'
-
-# disable spelling correction
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-
-# disable media keys
-launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
-
-# disable smart quotes
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-
-# disable smart dashes
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-
 ###############################################################################
 # Bluetooth                                                                   #
 ###############################################################################
 
 echo "### bluetooth"
 
-# increase sound quality
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
-
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
 
 echo "### screen"
-
-# Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
-
-# Save screenshots to the desktop
-#defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 
 # Save screenshots to the Pictures/Screenshots
 mkdir -p ${HOME}/Pictures/Screenshots
@@ -170,31 +108,17 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 
 echo "### finder"
 
-# Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
-defaults write com.apple.finder QuitMenuItem -bool true
-
-# Finder: disable window animations and Get Info animations
-defaults write com.apple.finder DisableAllAnimations -bool true
-
-# Set Desktop as the default location for new Finder windows
-# For other paths, use `PfLo` and `file:///full/path/here/`
-defaults write com.apple.finder NewWindowTarget -string "PfDe"
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
-
 # Show icons for hard drives, servers, and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
-defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop         -bool true
+defaults write com.apple.finder ShowMountedServersOnDesktop     -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop     -bool true
 
 # Finder: show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-
-# Finder: show status bar
-#defaults write com.apple.finder ShowStatusBar -bool true
 
 # Finder: show path bar
 defaults write com.apple.finder ShowPathbar -bool true
@@ -239,9 +163,6 @@ echo "### mail"
 defaults write com.apple.mail DisableReplyAnimations -bool true
 defaults write com.apple.mail DisableSendAnimations -bool true
 
-# Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app
-defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" -string "@\\U21a9"
-
 # display threaded emails sorted by date
 defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreadedMode" -string "yes"
 defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending" -string "yes"
@@ -256,8 +177,6 @@ defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnab
 
 echo "### spotlight"
 
-# Hide Spotlight tray-icon (and subsequent helper)
-#sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 # Disable Spotlight indexing for any volume that gets mounted and has not yet
 # been indexed before.
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
@@ -346,24 +265,12 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 
 echo "### debug menus"
 
-# Enable the debug menu in Address Book
-# defaults write com.apple.addressbook ABShowDebugMenu -bool true
-
-# Enable Dashboard dev mode (allows keeping widgets on the desktop)
-# defaults write com.apple.dashboard devmode -bool true
-
-# Enable the debug menu in iCal (pre-10.8)
-# defaults write com.apple.iCal IncludeDebugMenu -bool true
-
 # Use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -int 0
+
 # Open and save files as UTF-8 in TextEdit
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
-
-# Enable the debug menu in Disk Utility
-# defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
-# defaults write com.apple.DiskUtility advanced-image-options -bool true
 
 ###############################################################################
 # Mac App Store                                                               #
