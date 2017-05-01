@@ -12,5 +12,8 @@ cask 'bluemix-cli'
 brew 'cf-cli'
 brew 'heroku-toolbelt'
 brew 'kubernetes-cli'
+brew 'mesos'
+cask 'minikube'
+brew 'minimesos'
 
 brew 'consul'

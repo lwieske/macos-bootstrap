@@ -4,3 +4,4 @@
 brew 'ansible'
 cask 'powershell'
 brew 'saltstack'
+brew 'terraform'
