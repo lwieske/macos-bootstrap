@@ -15,3 +15,4 @@ cask 'mysqlworkbench'
 cask 'postico'
 
 cask 'mongodbpreferencepane'
+cask 'postgrespreferencepane'

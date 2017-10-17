@@ -5,6 +5,7 @@
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'cloudfoundry/tap'
+tap 'ethereum/ethereum'
 tap 'getantibody/homebrew-antibody'
 tap 'homebrew/science'
 

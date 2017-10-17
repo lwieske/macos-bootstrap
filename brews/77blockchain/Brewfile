@@ -4,4 +4,6 @@
 cask 'bitcoin-core'
 
 cask 'ethereum-wallet'
-cask 'ethereum-mist'
+cask 'mist'
+
+brew 'solidity'
