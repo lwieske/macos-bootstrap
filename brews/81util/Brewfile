@@ -1,6 +1,7 @@
 ################################################################################
 ### utilities ##################################################################
 ################################################################################
+brew 'cfssl'
 brew 'dnsmasq'
 brew 'imagemagick'
 brew 'jq'
@@ -9,9 +10,10 @@ brew 'ttyrec'
 brew 'unrar'
 brew 'wget'
 brew 'xz'
+
 cask 'avira-antivirus'
 cask 'cleanmymac'
 cask 'keybase'
 cask 'wireshark'
-mas  'CleanMyDrive 2', id: 523620159
-mas 'Monosnap', id: 540348655
+
+mas  'Monosnap', id: 540348655

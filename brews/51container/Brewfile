@@ -1,6 +1,16 @@
 ################################################################################
 ### container ##################################################################
 ################################################################################
+brew 'consul'
 brew 'docker'
-
 brew 'etcd'
+brew 'faas-cli'
+brew 'kubernetes-cli'
+brew 'kubernetes-helm'
+brew 'mesos'
+
+brew 'docker-machine'
+brew 'docker-machine-driver-xhyve'
+
+cask 'minikube'
+brew 'minimesos'

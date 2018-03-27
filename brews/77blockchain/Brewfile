@@ -3,7 +3,7 @@
 ################################################################################
 cask 'bitcoin-core'
 
+brew 'ethereum'
+brew 'parity'
 cask 'ethereum-wallet'
 cask 'mist'
-
-brew 'solidity'

@@ -4,5 +4,4 @@
 cask 'slack'
 
 mas  'Pocket',      id: 568494494
-mas  'Twitter',     id: 409789998
 mas  'Wunderlist',  id: 410628904

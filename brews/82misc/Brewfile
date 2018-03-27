@@ -3,9 +3,10 @@
 ################################################################################
 cask 'adobe-acrobat-reader'
 cask 'ableton-live-suite'
+cask 'anaconda'
 cask 'blender'
 cask 'kindle'
 cask 'monodraw'
 cask 'musescore'
-cask 'sketchup'
+cask 'sketch'
 cask 'spectacle'
