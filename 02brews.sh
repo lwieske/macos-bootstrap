@@ -29,6 +29,11 @@ brew tap homebrew/bundle
 echo "### brew bundle browser (brew+cask+mas)"
 
 for brew in                   \
+            "00initialize"    \
+                              \
+            "10editor"        \
+            "11terminal"      \
+                              \
             "20quicklook"     \
                               \
             "30browser"       \
@@ -40,6 +45,7 @@ for brew in                   \
             "51container"     \
                               \
             "60cloud"         \
+            "61analytics"     \
                               \
             "70lang"          \
             "71ide"           \
@@ -57,7 +63,7 @@ for brew in                   \
                               \
     ; do
     echo "### brew/cask/mas ${brew}"
-    pushd brews/${brew} ; brew bundle ; popd
+    pushd brews/${brew} ; brew bundle install --force; popd
 done
 
 echo "### brew cleanup"

@@ -9,6 +9,3 @@ mas  'OneDrive', id: 823766827
 
 brew 'awscli'
 brew 'azure-cli'
-cask 'bluemix-cli'
-brew 'cf-cli'
-brew 'heroku-toolbelt'

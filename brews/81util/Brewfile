@@ -11,7 +11,6 @@ brew 'unrar'
 brew 'wget'
 brew 'xz'
 
-cask 'avira-antivirus'
 cask 'cleanmymac'
 cask 'keybase'
 cask 'wireshark'

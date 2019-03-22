@@ -13,4 +13,3 @@ brew 'docker-machine'
 brew 'docker-machine-driver-xhyve'
 
 cask 'minikube'
-brew 'minimesos'

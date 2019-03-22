@@ -5,10 +5,10 @@
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
-tap 'cloudfoundry/tap'
+
+tap 'homebrew/cask-drivers'
+
 tap 'ethereum/ethereum'
 tap 'paritytech/paritytech'
-tap 'getantibody/homebrew-antibody'
-tap 'homebrew/science'
 
 brew 'mas'

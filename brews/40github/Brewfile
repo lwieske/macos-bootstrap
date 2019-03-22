@@ -5,5 +5,4 @@ brew 'git'
 brew 'git-flow'
 brew 'git-lfs'
 
-cask 'github-desktop'
-cask 'gitkraken'
+cask 'github'
