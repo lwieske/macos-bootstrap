@@ -18,6 +18,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 echo "### general"
 
+defaults write NSGlobalDomain AppleLanguages "(de-DE,en-DE)"
+defaults write NSGlobalDomain AppleLocale    -string de-DE
+
 # set name
 sudo scutil --set ComputerName  ${HOSTNAME}
 sudo scutil --set HostName      ${HOSTNAME}
@@ -46,39 +49,6 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 # enable the application firewall
 sudo defaults write /Library/Preferences/com.apple.alf globalstate    -int 1
 sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
-
-###############################################################################
-# SSD                                                                         #
-###############################################################################
-
-echo "### ssd"
-
-# Disable local Time Machine snapshots
-sudo tmutil disablelocal
-
-###############################################################################
-# Trackpad                                                                    #
-###############################################################################
-
-echo "### trackpad"
-
-###############################################################################
-# Mouse                                                                       #
-###############################################################################
-
-echo "### mouse"
-
-###############################################################################
-# Keyboard                                                                    #
-###############################################################################
-
-echo "### keyboard"
-
-###############################################################################
-# Bluetooth                                                                   #
-###############################################################################
-
-echo "### bluetooth"
 
 ###############################################################################
 # Screen                                                                      #
@@ -180,7 +150,6 @@ echo "### spotlight"
 # Disable Spotlight indexing for any volume that gets mounted and has not yet
 # been indexed before.
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
-sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 # Change indexing order and disable some search results
 # Yosemite-specific search results (remove them if your are using OS X 10.9 or older):
 #   MENU_DEFINITION
@@ -238,7 +207,7 @@ echo "### time machine"
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
+hash tmutil &> /dev/null && sudo tmutil disable
 
 ###############################################################################
 # Activity Monitor                                                            #
@@ -317,11 +286,3 @@ for app in                     \
     killall "${app}" > /dev/null 2>&1
     echo "### killall ${app}"
 done
-
-echo "### relaunch alf (application level firewall)"
-
-# sudo launchctl unload /System/Library/LaunchAgents/com.apple.alf.useragent.plist
-sudo launchctl unload /System/Library/LaunchDaemons/com.apple.alf.agent.plist
-
-sudo launchctl load /System/Library/LaunchDaemons/com.apple.alf.agent.plist
-# sudo launchctl load /System/Library/LaunchAgents/com.apple.alf.useragent.plist

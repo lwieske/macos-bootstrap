@@ -20,9 +20,9 @@ PATH="/usr/local/sbin:$PATH"
 echo "### brew update + upgrade + doctor + tap homebrew/bundle"
 brew update; brew upgrade; brew doctor; brew tap homebrew/bundle
 
-for brew in "00initialize" "10editor" "11terminal"; do
-    echo "### brew/cask/mas ${brew}"
-    pushd brews/${brew} >/dev/null 2>&1; brew bundle ; popd>/dev/null 2>&1
+for bundle in brews/{00initialize,10editor,11terminal}; do
+    echo "### brew/cask/mas ${bundle}"
+    pushd ${bundle} >/dev/null 2>&1; brew bundle ; popd>/dev/null 2>&1
 done
 
 echo "### brew cleanup"
@@ -41,4 +41,4 @@ echo "### config iterm"
 ./11iterm.sh
 
 echo "### config dock"
-./12dock.sh
+./13dock.sh

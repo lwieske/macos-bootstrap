@@ -7,32 +7,25 @@ COLOR="Brogrammer"
 ################################################################################
 
 # ask for the administrator password upfront
-#sudo -v
+sudo -v
 
 # keep alive - update existing `sudo` time stamp until finished
-#while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ################################################################################
 
 main() {
 
-# open it to initialize preferences
-open -g "/Applications/iTerm.app" && sleep 3
-
-defaults write com.googlecode.iterm2 PromptOnQuit            -bool false
-defaults write com.googlecode.iterm2 SUAutomaticallyUpdate   -bool true
-defaults write com.googlecode.iterm2 SUEnableAutomaticChecks -bool true
-
-osascript -e 'quit app "iTerm"'
-
-defaults read com.googlecode.iterm2
-
 ################################################################################
-### font #######################################################################
+### shell ######################################################################
 ################################################################################
 
 echo "### iterm - set zsh login shell"
 sudo chsh -s /bin/zsh $USER
+
+################################################################################
+### font #######################################################################
+################################################################################
 
 echo "### iterm - reset font cache"
 atsutil databases -removeUser
@@ -91,11 +84,6 @@ fi
 
 echo "### iterm - reset preferences cache"
 defaults read com.googlecode.iterm2
-
-# open it to initialize preferences
-open -g "/Applications/iTerm.app" && sleep 3
-
-osascript -e 'quit app "iTerm"'
 
 }
 

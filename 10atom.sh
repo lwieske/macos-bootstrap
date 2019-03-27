@@ -34,4 +34,3 @@ apm install split-diff
 apm install todo-show
 
 apm install tool-bar markdown-writer
-apm install tool-bar-markdown-writer
