@@ -116,10 +116,12 @@ cask 'microsoft-office'
 ################################################################################
 ### utilities ##################################################################
 ################################################################################
+brew 'asciinema'
+brew 'graphviz'
 brew 'imagemagick'
 brew 'jq'
-brew 'graphviz'
 brew 'openssl'
+brew 'tmux'
 brew 'ttyrec'
 brew 'unrar'
 brew 'wget'
