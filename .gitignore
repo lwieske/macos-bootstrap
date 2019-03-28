@@ -1,11 +1,9 @@
-.DS_Store
-Desktop.ini
-
 ._*
-Thumbs.db
-
+.DS_Store
 .Spotlight-V100
 .Trashes
-
+.vagrant
+Desktop.ini
 iTerm2-Color-Schemes
 metastore_db
+Thumbs.db
