@@ -18,27 +18,34 @@ function bootstrap() {
             echo ""
             ./00macos.sh
         fi
-        if [ $ARG == "basics" ] || [ $ARG == "all" ]; then
+        if [ $ARG == "brew" ] || [ $ARG == "all" ]; then
             echo ""
             echo "#############################################################"
-            echo "### install homebrew + editor + terminal"
+            echo "### install homebrew and brew everything"
             echo "#############################################################"
             echo ""
-            ./01basics.sh
+            ./01homebrew.sh
         fi
-        if [ $ARG == "brews" ] || [ $ARG == "all" ]; then
+        if [ $ARG == "vscode" ] || [ $ARG == "all" ]; then
             echo ""
             echo "#############################################################"
-            echo "### brew everything"
+            echo "### install homebrew and brew everything"
             echo "#############################################################"
             echo ""
+            ./20vscode.sh
+        fi
+        if [ $ARG == "anaconda" ] || [ $ARG == "all" ]; then
             echo ""
-            ./02brews.sh
+            echo "#############################################################"
+            echo "### install homebrew and brew everything"
+            echo "#############################################################"
+            echo ""
+            ./50anaconda.sh
         fi
     done
     echo ""
     echo "#####################################################################"
-    echo "### bootstrap completed ... restart to ensure all updates take effect"
+    echo "### ... completed ... restart to ensure all updates take effect"
     echo "#####################################################################"
     echo ""
 }

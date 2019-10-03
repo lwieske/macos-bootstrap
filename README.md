@@ -241,3 +241,7 @@ vagrant halt ; vagrant up
   Succeeded in installing sketchup
   Succeeded in installing spectacle
   ```
+
+```
+brew update && brew upgrade && brew cu --all --yes --cleanup && mas upgrade && brew cleanup
+```

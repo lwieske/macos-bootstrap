@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-HOSTNAME="cloudgate"
+HOSTNAME="analytica"
 
 ###############################################################################
 
