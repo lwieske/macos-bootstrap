@@ -29,7 +29,7 @@ function bootstrap() {
         if [ $ARG == "vscode" ] || [ $ARG == "all" ]; then
             echo ""
             echo "#############################################################"
-            echo "### install homebrew and brew everything"
+            echo "### install vscode extensions"
             echo "#############################################################"
             echo ""
             ./20vscode.sh
@@ -37,7 +37,7 @@ function bootstrap() {
         if [ $ARG == "anaconda" ] || [ $ARG == "all" ]; then
             echo ""
             echo "#############################################################"
-            echo "### install homebrew and brew everything"
+            echo "### install anaconda3"
             echo "#############################################################"
             echo ""
             ./50anaconda.sh
