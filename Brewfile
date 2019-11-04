@@ -46,6 +46,8 @@ brew 'git'
 brew 'git-flow'
 brew 'git-lfs'
 cask 'github'
+brew 'hub'
+cask 'fork'
 ################################################################################
 ### social #####################################################################
 ################################################################################
@@ -149,10 +151,16 @@ cask 'brave-browser'
 cask 'cleanmymac'
 cask 'drawio'
 cask 'falcon-sql-client'
+# mas  'Kazoo', id: 848937349
+cask 'freecad'
+cask 'inkscape'
 cask 'keybase'
 cask 'kindle'
+brew 'librsvg'
 cask 'monodraw'
 cask 'musescore'
 cask 'openscad'
+# mas  'Pocket', id: 568494494
 cask 'spectacle'
 cask 'wireshark'
+brew 'youtube-dl'

@@ -21,6 +21,7 @@ for i in \
             ms-vsliveshare.vsliveshare \
             redhat.vscode-yaml \
             rust-lang.rust \
+            stkb.rewrap \
             vscode-icons-team.vscode-icons \
             vscoss.vscode-ansible \
             yzhang.markdown-all-in-one

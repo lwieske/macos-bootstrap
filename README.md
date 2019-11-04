@@ -1,28 +1,8 @@
-# macos-bootstrap
-
-## Testing and Validating with Packer/Vagrant
-
-```
-vagrant destroy --force
-sudo gem install macinbox
-sudo macinbox --box-format virtualbox
-vagrant init macinbox
-```
-
-```
-vagrant up
-vagrant scp ../macos-bootstrap .
-vagrant ssh -c "cd macos-bootstrap ; ./bootstrap.sh macos"
-vagrant halt ; vagrant up
-vagrant ssh -c "cd macos-bootstrap ; ./bootstrap.sh basics"
-vagrant halt ; vagrant up
-vagrant ssh -c "cd macos-bootstrap ; ./bootstrap.sh brews"
-vagrant halt ; vagrant up
-```
+# macos-bootstrap - bootstrap fresh 10.15/Catalina install with brewed apps
 
 ## ./bootstrap.sh macos
 
-## ./bootstrap.sh basics
+## ./bootstrap.sh brews
 
 ## ./bootstrap.sh brews
 
