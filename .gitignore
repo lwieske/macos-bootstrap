@@ -1,10 +1,4 @@
-._*
+Brewfile.lock.json
 .DS_Store
-.Spotlight-V100
-.Trashes
-.vagrant
-Desktop.ini
-iTerm2-Color-Schemes
-metastore_db
-Thumbs.db
-.vagrant/rgloader/loader.rb
+.vsgrant/
+.vscode/

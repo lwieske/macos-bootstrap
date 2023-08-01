@@ -1,0 +1,16 @@
+name: pytorch_m1
+channels:
+  - pytorch
+dependencies:
+  - python
+  - pip
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pandas
+  - numpy
+  - matplotlib
+  - scikit-learn
+  - tqdm 
+  - jupyter
+  - nb_conda_kernels

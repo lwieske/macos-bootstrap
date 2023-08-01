@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-HOSTNAME="analytica"
+#if [ "$1" == ""]; then
+#    echo "Exit: first parameter for hostname not set"
+#    exit
+#fi
+#
+#exit
+
+HOSTNAME="deep"
 
 ###############################################################################
 
@@ -13,13 +20,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 ###############################################################################
-# general
+# General
 ###############################################################################
 
 echo "### general"
-
-defaults write NSGlobalDomain AppleLanguages "(de-DE,en-DE)"
-defaults write NSGlobalDomain AppleLocale    -string de-DE
 
 # set name
 sudo scutil --set ComputerName  ${HOSTNAME}
@@ -27,21 +31,12 @@ sudo scutil --set HostName      ${HOSTNAME}
 sudo scutil --set LocalHostName ${HOSTNAME}
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string ${HOSTNAME}
 
-# Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
-
-# Disable transparency in the menu bar and elsewhere on Sierra
-defaults write com.apple.universalaccess reduceTransparency -bool true
-
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Reveal IP address, hostname, OS version, etc. when clicking the clock
 # in the login window
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
-
-# Set the computer to sleep after 60 minutes
-sudo systemsetup -setcomputersleep 60 > /dev/null
 
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
@@ -55,10 +50,6 @@ sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
 ###############################################################################
 
 echo "### screen"
-
-# Save screenshots to the Pictures/Screenshots
-mkdir -p ${HOME}/Pictures/Screenshots
-defaults write com.apple.screencapture location -string "${HOME}/Pictures/Screenshots"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
@@ -122,6 +113,7 @@ echo "### dock"
 
 # Set the icon size of Dock items to 36 pixels
 defaults write com.apple.dock tilesize -int 36
+defaults write com.apple.dock show-recents -bool false
 
 ###############################################################################
 # Mail                                                                        #
@@ -134,9 +126,9 @@ defaults write com.apple.mail DisableReplyAnimations -bool true
 defaults write com.apple.mail DisableSendAnimations -bool true
 
 # display threaded emails sorted by date
-defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreadedMode" -string "yes"
-defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending" -string "yes"
-defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -string "received-date"
+defaults write com.apple.mail DraftsViewerAttributes -dict-add DisplayInThreadedMode -string yes
+defaults write com.apple.mail DraftsViewerAttributes -dict-add SortedDescending -string yes
+defaults write com.apple.mail DraftsViewerAttributes -dict-add SortOrder -string received-date
 
 # Disable automatic spell checking
 defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled"
@@ -189,7 +181,7 @@ sudo mdutil -i on / > /dev/null
 sudo mdutil -E / > /dev/null
 
 ###############################################################################
-# Terminal                                                       #
+# Terminal                                                                    #
 ###############################################################################
 
 echo "### terminal"
@@ -198,16 +190,13 @@ echo "### terminal"
 defaults write com.apple.terminal StringEncodings -array 4
 
 ###############################################################################
-# Time Machine                                                                #
+# Mouse                                                                       #
 ###############################################################################
 
-echo "### time machine"
+echo "### mouse"
 
-# Prevent Time Machine from prompting to use new hard drives as backup volume
-# defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
-
-# Disable local Time Machine backups
-# hash tmutil &> /dev/null && sudo tmutil disable
+# set mouse to no "natural" scrolling
+defaults write -g com.apple.swipescrolldirection -bool false
 
 ###############################################################################
 # Activity Monitor                                                            #
@@ -286,3 +275,16 @@ for app in                     \
     killall "${app}" > /dev/null 2>&1
     echo "### killall ${app}"
 done
+
+###############################################################################
+# Software Updates                                                            #
+###############################################################################
+
+echo "### update command line tools"
+sudo xcode-select --install
+
+echo "### update software"
+sudo softwareupdate --all --install --force
+
+echo "### install rosetta 2"
+sudo softwareupdate --install-rosetta --agree-to-license
